@@ -17,11 +17,12 @@ app.get('/test', (req,res)=>{
 });
 
 app.post('/criaconta',(req,res)=>{
+    // console.log(req);
     const body = req.body;
     const {nome, email, senha} = req.body;
     console.log(body);
-    if(body.email != undefined && body.senha != undefined){
-        console.log(body.email+" "+body.senha);
+    if(email != undefined && senha != undefined){
+        console.log(email+" "+senha);
         usuarios.push({
             nome, email, senha
         })
