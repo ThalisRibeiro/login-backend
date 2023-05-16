@@ -29,13 +29,14 @@ app.post('/criaconta',(req,res)=>{
     }
     // res.status(200).send({})
     res.status(200).send({
+        status: 200,
         message: 'salvo',
         usuario: usuarios[usuarios.length - 1].nome,
         emailRecebido: usuarios[usuarios.length - 1].email,
         senhaRecebida: usuarios[usuarios.length - 1].senha
     }) 
 })
-app.get('/login', (req,res)=>{
+app.post('/login', (req,res)=>{
     const {email, senha} = req.body;
     // value 0 = não existe, 1 encontrou, 2 senha errada
     let value = 0;    let status;    
@@ -72,6 +73,7 @@ app.get('/login', (req,res)=>{
             break;
     }
     res.status(status).send({
+        status: status,
         message: message
     })
 })
