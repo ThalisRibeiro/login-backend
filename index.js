@@ -22,7 +22,7 @@ app.post('/criaconta',(req,res)=>{
     const {nome, email, senha} = req.body;
     console.log(body);
     if(email != undefined && senha != undefined){
-        console.log(email+" "+senha);
+        // console.log(email+" "+senha);
         usuarios.push({
             nome, email, senha
         })
@@ -32,8 +32,7 @@ app.post('/criaconta',(req,res)=>{
         status: 200,
         message: 'salvo',
         usuario: usuarios[usuarios.length - 1].nome,
-        emailRecebido: usuarios[usuarios.length - 1].email,
-        senhaRecebida: usuarios[usuarios.length - 1].senha
+        emailRecebido: usuarios[usuarios.length - 1].email
     }) 
 })
 app.post('/login', (req,res)=>{
@@ -57,7 +56,7 @@ app.post('/login', (req,res)=>{
     switch (value) {
         case 1:
             status = 200;
-            message = "seja bem vindo "+usuarios[index].nome
+            message = usuarios[index].nome
             break;
         case 2:
             status = 230;
